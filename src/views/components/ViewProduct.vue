@@ -9,6 +9,7 @@
 			<v-card class="d-flex justify-space-around dialog-product">
 				<div class="div-img">
 					<v-img
+					width="400px"
 						:src="'https://app-benj.com/api' + product.picture"
 						height="100%"
 						class="img"

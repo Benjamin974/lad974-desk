@@ -61,11 +61,15 @@
 					/>
 				</v-form>
 			</v-card-text>
-			<v-card-actions>
+			<v-card-actions class="bottom-login">
+				Pas encore inscrit ?
+				<v-btn class="ml-2 mr-3" outlined text color="primary" to="/register">
+					Inscription</v-btn
+				>
 				<v-btn outlined color="success" :disabled="!valid" @click="connection"
 					>Connexion</v-btn
 				>
-				<div class="ml-7">
+				<div class="ml-7" style="color: red">
 					<span>{{ erreur }}</span>
 				</div>
 			</v-card-actions>
@@ -75,3 +79,12 @@
 
 <script src='./login'>
 </script>
+
+<style lang="scss">
+.bottom-login {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 600px;
+}
+</style>

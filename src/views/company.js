@@ -48,7 +48,7 @@ export default {
       })
     },
     getProducts(id) {
-      apiService.get('https://app-benj.com/api/product/get/' + id).then(({ data }) => {
+      apiService.get('https://app-benj.com/api/product/get-all/' + id).then(({ data }) => {
         data.data.forEach(product => {
           this.products.push(product);
         });
@@ -58,6 +58,9 @@ export default {
       console.log(product);
       const index = _.findIndex(this.products, { id: product.data.id });
       this.products.splice(index, 1, product.data);
+    },
+    addProduct(product) {
+      this.products.push(product.data);
     }
   }
 }

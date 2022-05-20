@@ -37,10 +37,14 @@ export default {
   },
   methods: {
     getCommands() {
-      apiService.get('https://app-benj.com/api/command/get').then(({ data }) => {
+      apiService.get('https://app-benj.com/api/command/get/' + authenticationService.currentUserValue.id).then(({ data }) => {
+        console.log(data);
         data.data.forEach(command => {
           this.commands.push(command)
         })
+      })
+      .catch((error) => {
+        console.log(error)
       })
     },
 

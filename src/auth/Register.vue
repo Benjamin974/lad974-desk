@@ -50,13 +50,20 @@
 						type="password"
 						@keydown.enter="register"
 					/>
+					<v-select
+						v-model="role"
+						:items="roles"
+						item-text="name"
+						item-value="id"
+						label="Role"
+					></v-select>
 				</v-form>
 			</v-card-text>
 			<v-card-actions>
 				<v-btn outlined color="primary" to="/login"
 					>Vous avez déjà un compte ?</v-btn
 				>
-				<v-btn outlined color="success" :disabled="!valid" @click="register"
+				<v-btn outlined color="success" :disabled="!valid || role == ''" @click="register"
 					>S'inscrire</v-btn
 				>
 				<div class="ml-7">

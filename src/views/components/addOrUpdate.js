@@ -42,7 +42,7 @@ export default {
         firstname: this.firstname,
         description: this.description,
         price: this.price,
-        picture: this.picture,
+        // picture: this.picture,
         quantite: this.quantite,
         id_company: this.idCompany,
         id: this.id == '' ? '' : this.id

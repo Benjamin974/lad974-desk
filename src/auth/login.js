@@ -42,6 +42,9 @@ export default {
             self.erreur = 'Utilisateur suspendu'
           } else if (user == 'login invalide') {
             self.erreur = 'mot de passe ou email oublié'
+          } else if (user == 'client') {
+            self.erreur = 'vous êtes un client'
+            authenticationService.logout();
           } else {
             for (let i = 0; i < 4; i++) {
               if (user == 'tentative restant: ' + i) {

@@ -8,6 +8,7 @@ import Login from './auth/Login.vue';
 import { Role } from './_helpers/role';
 import { authenticationService } from './_services/authentication.service';
 import _ from 'lodash';
+import Register from './auth/Register.vue';
 Vue.use(VueRouter);
 const routes = new VueRouter({
   mode: 'history',
@@ -40,6 +41,11 @@ const routes = new VueRouter({
       path: '/login',
       name: 'login',
       component: Login,
+    },
+    {
+      path: '/register',
+      name: 'register',
+      component: Register,
     },
   ]
 });

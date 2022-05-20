@@ -1,5 +1,6 @@
 import { authenticationService } from "../_services/authentication.service";
-
+import { apiService } from '../_services/api.service'
+import { EventBus } from '../eventBus'
 export default {
 
   data() {
@@ -22,7 +23,9 @@ export default {
       valid: true,
       loading: false,
       returnUrl: "",
-      erreur: ''
+      erreur: '',
+      role: '',
+      roles: [{id: 2, role: 'Company', name: 'Commerce'}, {id: 3, role: 'DeliveryMan', name: 'Livreur'}, {id: 4, role: 'Admin', name: 'Administrateur'}]
     };
   },
   watch: {
@@ -38,7 +41,7 @@ export default {
       }
 
     },
-    password: function(val) {
+    password: function (val) {
       const self = this;
       val == '' ? self.erreur = '' : null;
     }
@@ -55,17 +58,14 @@ export default {
   },
   methods: {
     register() {
-      let self = this;
 
-      self.loading = true;
-      // authenticationService.register(self.user).then(
-      //   (user: any) => {
-      //     console.log(user);
-      //   },
-      //   (error: any) => {
-      //     self.loading = false;
-      //   }
-      // );
+      this.loading = true;
+      apiService.post('https://app-benj.com/api/register', { name: this.user.name, email: this.user.email, password: this.password, id_role: this.role }).then((response) => {
+        console.log(response);
+        EventBus.$emit('updateSnack', { etat: true, text: "vous êtes desormais inscrit", color: 'success' })
+        this.$router.push('/login')
+
+      })
     }
   }
 };

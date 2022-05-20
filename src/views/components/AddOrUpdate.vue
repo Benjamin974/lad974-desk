@@ -8,7 +8,8 @@
 					text
 					v-if="!isUpdate"
 				>
-					<v-icon class="red--text">mdi-account-multiple-plus</v-icon>
+					<v-icon class="green--text mr-2">mdi-account-multiple-plus</v-icon>
+					<span style="color: green">Ajouter un produit</span>
 				</v-btn> </template
 			><span>Ajouter un produit</span>
 		</v-tooltip>
@@ -79,7 +80,7 @@
 						:rules="rules.field_required"
 					></v-text-field>
 				</v-row>
-				<v-row class="mr-5 ml-5 field-img">
+				<!-- <v-row class="mr-5 ml-5 field-img">
 					<v-file-input
 						v-on:change="onFileChange"
 						:rules="rules.field_required"
@@ -101,7 +102,7 @@
 					<v-btn icon v-on:click="removeImg">
 						<v-icon>mdi-close-circle</v-icon>
 					</v-btn>
-				</v-row>
+				</v-row> -->
 			</v-form>
 
 			<template v-slot:append>
@@ -135,11 +136,11 @@
 <script src="./addOrUpdate.js" />
 
 <style lang="scss">
-	.field-img {
-		.v-image {
-			.v-image__image {
-				background-size: contain;
-			}
+.field-img {
+	.v-image {
+		.v-image__image {
+			background-size: contain;
 		}
 	}
+}
 </style>

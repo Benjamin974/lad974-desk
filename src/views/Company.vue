@@ -24,6 +24,11 @@
 					hide-details
 				></v-text-field>
 			</v-card-title>
+			<AddOrUpdate
+				:isUpdate="false"
+				:idCompany="company.id"
+				@addProduct="addProduct($event)"
+			/>
 			<v-data-table
 				:headers="headers"
 				:items="products"

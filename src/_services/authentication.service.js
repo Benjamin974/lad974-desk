@@ -37,16 +37,21 @@ function login(user) {
             if (data.message == 'Utilisateur suspendu') {
                 return data.message;
 
-            } else if(data.message == 'login invalide') {
+            } else if (data.message == 'login invalide') {
                 return data.message
             } else {
                 if (data.message == undefined) {
-                    // store user details and jwt token in local storage to keep user logged in between page refreshes
-                    localStorage.setItem("currentUser", JSON.stringify(data.data));
-                    currentUserSubject.next(data.data);
-                    return data.data;
-    
-    
+                    if (data.data.role.id != 1) {
+                        // store user details and jwt token in local storage to keep user logged in between page refreshes
+                        localStorage.setItem("currentUser", JSON.stringify(data.data));
+                        currentUserSubject.next(data.data);
+                        return data.data;
+                    } else {
+                        return "client"
+                    }
+
+
+
                 } else {
                     return data.message;
                 }

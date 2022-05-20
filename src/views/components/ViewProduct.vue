@@ -10,7 +10,7 @@
 				<div class="div-img">
 					<v-img
 					width="400px"
-						:src="'https://app-benj.com/api' + product.picture"
+						:src="'https://app-benj.com/api' + product.picture == null ? '/storage/images/logo_img.png' : product.picture"
 						height="100%"
 						class="img"
 					></v-img>
